@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "@/components/ui/toast";
+import { useToast } from "@/hooks/use-toast";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -22,13 +22,22 @@ const Home = () => {
       <nav className="bg-white shadow-sm py-4 px-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <span className="text-2xl font-bold text-skillTrade-purple">SkillTrade</span>
-          <Button 
-            variant="outline" 
-            onClick={handleLogout}
-            className="border-skillTrade-purple text-skillTrade-purple hover:bg-skillTrade-gray"
-          >
-            Log out
-          </Button>
+          <div className="flex space-x-4">
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate("/profile")}
+              className="text-skillTrade-neutral hover:text-skillTrade-purple"
+            >
+              My Profile
+            </Button>
+            <Button 
+              variant="outline" 
+              onClick={handleLogout}
+              className="border-skillTrade-purple text-skillTrade-purple hover:bg-skillTrade-gray"
+            >
+              Log out
+            </Button>
+          </div>
         </div>
       </nav>
 
@@ -43,9 +52,18 @@ const Home = () => {
           <p className="text-skillTrade-neutral mb-4">
             SkillTrade is a platform where students and faculty can exchange knowledge and skills in a collaborative campus environment.
           </p>
-          <Button className="bg-skillTrade-purple hover:bg-skillTrade-purpleDark text-white">
-            Explore Skills
-          </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button className="bg-skillTrade-purple hover:bg-skillTrade-purpleDark text-white">
+              Explore Skills
+            </Button>
+            <Button 
+              variant="outline" 
+              onClick={() => navigate("/profile")}
+              className="border-skillTrade-purple text-skillTrade-purple hover:bg-skillTrade-gray"
+            >
+              Complete Your Profile
+            </Button>
+          </div>
         </div>
       </div>
     </div>
