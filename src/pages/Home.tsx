@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
@@ -111,10 +110,7 @@ const Home = () => {
   };
 
   const handlePostTask = () => {
-    toast({
-      title: "Coming Soon",
-      description: "Task creation feature will be available soon!",
-    });
+    navigate("/post-task");
   };
 
   return (

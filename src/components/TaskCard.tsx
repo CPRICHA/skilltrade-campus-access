@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Coins, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface TaskCardProps {
   title: string;
@@ -24,6 +25,8 @@ const TaskCard = ({
   skillMatch, 
   category 
 }: TaskCardProps) => {
+  const navigate = useNavigate();
+  
   return (
     <Card className="w-full transition-shadow hover:shadow-md">
       <CardHeader className="pb-2">
@@ -57,7 +60,16 @@ const TaskCard = ({
             </Badge>
           )}
         </div>
-        <Button variant="ghost" size="sm" className="text-skillTrade-purple hover:text-skillTrade-purpleDark hover:bg-skillTrade-gray">
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          className="text-skillTrade-purple hover:text-skillTrade-purpleDark hover:bg-skillTrade-gray"
+          onClick={() => {
+            // In a real application, this would navigate to a task details page
+            // For now, just show an alert
+            alert(`Task details for: ${title}`);
+          }}
+        >
           Details
         </Button>
       </CardFooter>
