@@ -14,6 +14,7 @@ interface TaskCardProps {
   postedBy: string;
   skillMatch?: number;
   category: string;
+  id: string;
 }
 
 const TaskCard = ({ 
@@ -23,7 +24,8 @@ const TaskCard = ({
   deadline, 
   postedBy, 
   skillMatch, 
-  category 
+  category,
+  id
 }: TaskCardProps) => {
   const navigate = useNavigate();
   
@@ -64,11 +66,7 @@ const TaskCard = ({
           variant="ghost" 
           size="sm" 
           className="text-skillTrade-purple hover:text-skillTrade-purpleDark hover:bg-skillTrade-gray"
-          onClick={() => {
-            // In a real application, this would navigate to a task details page
-            // For now, just show an alert
-            alert(`Task details for: ${title}`);
-          }}
+          onClick={() => navigate(`/task/${id}`)}
         >
           Details
         </Button>
